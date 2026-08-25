@@ -2,6 +2,8 @@
 
 > Eine geführte Web-App, die aus einer unsortierten Kundenanfrage eine vollständige und verständliche Werkstattanfrage macht.
 
+**Live-Demo:** https://gzrnvjnfn6-max.github.io/servicecheck-portfolio-demo/
+
 ## Problem
 
 Werkstätten erhalten häufig unvollständige Anfragen: Fahrzeugdaten fehlen, die Dringlichkeit ist unklar und Terminwünsche werden nur im Freitext genannt. Dadurch entstehen Rückfragen und zusätzlicher Telefonaufwand.
@@ -68,7 +70,7 @@ Unterstützte Anliegen: `inspektion`, `reifen`, `reparatur`, `diagnose`, `hu` un
 
 ## Portfolio-Deliverables
 
-- öffentliche Live-Demo
+- [öffentliche Live-Demo](https://gzrnvjnfn6-max.github.io/servicecheck-portfolio-demo/)
 - drei finale Screenshots
 - kurzes Demo-Video des vollständigen Ablaufs
 

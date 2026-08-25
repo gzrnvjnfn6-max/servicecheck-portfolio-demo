@@ -63,7 +63,7 @@ Ergebnis: App ist auf 1440 px und 390 px vorzeigbar.
 - [x] Zusammenfassung und Bestätigungsansicht umgesetzt
 - [x] Desktop- und Mobile-Qualitätscheck bestanden
 - [x] README aktualisiert
-- [ ] öffentliche Live-Demo veröffentlichen
-- [ ] AutoWerk mit der öffentlichen ServiceCheck-URL verknüpfen
+- [x] öffentliche Live-Demo veröffentlichen
+- [x] AutoWerk mit der öffentlichen ServiceCheck-URL verknüpfen
 - [ ] drei finale Screenshots aufnehmen
 - [ ] kurzes Demo-Video aufnehmen

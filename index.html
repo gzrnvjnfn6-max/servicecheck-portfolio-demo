@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#e84524" />
+    <meta
+      name="description"
+      content="ServiceCheck erfasst Kfz-Werkstattanfragen strukturiert, vollständig und unverbindlich."
+    />
+    <title>ServiceCheck | Digitale Werkstattanfrage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#app-main">Zum Formular springen</a>
+    <aside class="demo-banner" id="demo-banner" aria-label="Hinweis zur Demo-Umgebung">
+      <span>Das ist eine Demo-Umgebung – Daten und Nachrichten werden nicht übermittelt.</span>
+      <button type="button" id="close-demo-banner" aria-label="Demo-Hinweis schließen">×</button>
+    </aside>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="ServiceCheck Startseite">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-family">AutoWerk</span>
+        <span class="brand-product">/ ServiceCheck</span>
+      </a>
+      <a class="back-link" id="autowerk-link" href="https://gzrnvjnfn6-max.github.io/autowerk-portfolio-demo/">Zur AutoWerk-Seite <span>↗</span></a>
+    </header>
+
+    <main id="app-main" class="app-shell">
+      <aside class="app-intro" aria-labelledby="intro-title">
+        <p class="eyebrow"><span></span> Digitale Serviceannahme</p>
+        <h1 id="intro-title">Dein Anliegen.<br /><em>Klar erfasst.</em></h1>
+        <p class="intro-copy">
+          In wenigen Schritten entsteht eine vollständige, unverbindliche Anfrage für die Werkstatt – ohne Rückruf-Pingpong.
+        </p>
+
+        <ol class="step-overview" aria-label="Formularschritte">
+          <li class="is-active" data-overview-step="1"><span>01</span> Fahrzeug</li>
+          <li data-overview-step="2"><span>02</span> Anliegen</li>
+          <li data-overview-step="3"><span>03</span> Dringlichkeit</li>
+          <li data-overview-step="4"><span>04</span> Termin</li>
+          <li data-overview-step="5"><span>05</span> Kontakt</li>
+          <li data-overview-step="6"><span>06</span> Übersicht</li>
+        </ol>
+      </aside>
+
+      <section class="form-panel" aria-labelledby="step-title">
+        <div class="progress-meta">
+          <span id="step-counter">01 / 06</span>
+          <span id="step-name">Fahrzeug</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+
+        <form id="service-form" novalidate>
+          <section class="form-step is-active" data-step="1">
+            <p class="section-kicker">Starten wir mit dem Fahrzeug</p>
+            <h2 id="step-title" tabindex="-1">Worum sollen wir uns kümmern?</h2>
+            <p class="step-copy">Wähle die Fahrzeugart und ergänze die Daten, mit denen die Werkstatt dein Fahrzeug eindeutig zuordnen kann.</p>
+
+            <fieldset class="choice-grid vehicle-choices">
+              <legend>Fahrzeugart <span>Pflichtfeld</span></legend>
+              <label class="choice-card">
+                <input type="radio" name="vehicleType" value="Pkw" />
+                <span class="choice-number">01</span>
+                <span class="choice-icon" aria-hidden="true">▰</span>
+                <strong>Pkw</strong>
+                <small>Limousine, Kombi oder SUV</small>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="vehicleType" value="Transporter" />
+                <span class="choice-number">02</span>
+                <span class="choice-icon" aria-hidden="true">▰▯</span>
+                <strong>Transporter</strong>
+                <small>Kastenwagen oder Nutzfahrzeug</small>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="vehicleType" value="Wohnmobil" />
+                <span class="choice-number">03</span>
+                <span class="choice-icon" aria-hidden="true">▭</span>
+                <strong>Wohnmobil</strong>
+                <small>Camper oder Reisemobil</small>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="vehicleType" value="Sonstiges" />
+                <span class="choice-number">04</span>
+                <span class="choice-icon" aria-hidden="true">＋</span>
+                <strong>Sonstiges</strong>
+                <small>Andere Fahrzeugart</small>
+              </label>
+            </fieldset>
+            <p class="field-error" id="vehicleType-error" hidden>Bitte wähle eine Fahrzeugart aus.</p>
+
+            <div class="field-grid">
+              <label>
+                <span>Hersteller <b>Pflichtfeld</b></span>
+                <select name="vehicleMake">
+                  <option value="">Bitte auswählen</option>
+                  <option>Audi</option><option>BMW</option><option>Ford</option><option>Mercedes-Benz</option>
+                  <option>Opel</option><option>Škoda</option><option>Tesla</option><option>Toyota</option>
+                  <option>Volkswagen</option><option>Volvo</option><option>Andere Marke</option>
+                </select>
+                <small class="field-error" id="vehicleMake-error" hidden>Bitte wähle einen Hersteller.</small>
+              </label>
+              <label>
+                <span>Modell <b>Pflichtfeld</b></span>
+                <select name="vehicleModel" disabled>
+                  <option value="">Zuerst Hersteller wählen</option>
+                </select>
+                <small class="field-error" id="vehicleModel-error" hidden>Bitte wähle ein Modell.</small>
+              </label>
+              <label>
+                <span>Baujahr <b>Pflichtfeld</b></span>
+                <select name="year">
+                  <option value="">Bitte auswählen</option>
+                </select>
+                <small class="field-error" id="year-error" hidden>Bitte wähle ein Baujahr aus.</small>
+              </label>
+              <label>
+                <span>Kennzeichen <b>Pflichtfeld</b></span>
+                <input name="plate" type="text" autocomplete="off" placeholder="z. B. B–AW 2026" />
+                <small class="field-error" id="plate-error" hidden>Bitte ergänze das Kennzeichen.</small>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="2" hidden>
+            <p class="section-kicker">Beschreibe dein Anliegen</p>
+            <h2 tabindex="-1">Was können wir für dich tun?</h2>
+            <p class="step-copy">Wähle alle passenden Bereiche aus und beschreibe kurz, was dir aufgefallen ist.</p>
+
+            <fieldset class="choice-grid request-choices">
+              <legend>Servicebereich <span>Mehrfachauswahl möglich</span></legend>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Inspektion & Wartung" />
+                <span class="choice-number">01</span><span class="choice-icon" aria-hidden="true">▣</span>
+                <strong>Inspektion & Wartung</strong>
+              </label>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Reifen & Räder" />
+                <span class="choice-number">02</span><span class="choice-icon" aria-hidden="true">◉</span>
+                <strong>Reifen & Räder</strong>
+              </label>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Defekt & Reparatur" />
+                <span class="choice-number">03</span><span class="choice-icon" aria-hidden="true">⌕</span>
+                <strong>Defekt & Reparatur</strong>
+              </label>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Warnleuchte & Diagnose" />
+                <span class="choice-number">04</span><span class="choice-icon" aria-hidden="true">!</span>
+                <strong>Warnleuchte & Diagnose</strong>
+              </label>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Hauptuntersuchung" />
+                <span class="choice-number">05</span><span class="choice-icon" aria-hidden="true">✓</span>
+                <strong>Hauptuntersuchung</strong>
+              </label>
+              <label class="choice-card compact-choice">
+                <input type="checkbox" name="requestCategory" value="Sonstiges" />
+                <span class="choice-number">06</span><span class="choice-icon" aria-hidden="true">＋</span>
+                <strong>Sonstiges</strong>
+              </label>
+            </fieldset>
+            <p class="field-error" id="requestCategory-error" hidden>Bitte wähle mindestens einen Servicebereich aus.</p>
+
+            <label class="textarea-field">
+              <span>Kurze Beschreibung <b>Pflichtfeld</b></span>
+              <textarea name="requestDescription" rows="4" placeholder="z. B. Seit gestern leuchtet die Motorkontrollleuchte. Das Fahrzeug fährt normal."></textarea>
+              <small class="character-count"><span id="description-count">0</span> / 500 Zeichen</small>
+              <small class="field-error" id="requestDescription-error" hidden>Bitte beschreibe dein Anliegen in mindestens 10 Zeichen.</small>
+            </label>
+          </section>
+
+          <section class="form-step" data-step="3" hidden>
+            <p class="section-kicker">Wie dringend ist es?</p>
+            <h2 tabindex="-1">Wie verhält sich dein Fahrzeug?</h2>
+            <p class="step-copy">Deine Einschätzung hilft der Werkstatt bei der ersten Einordnung. Sie ersetzt keine Diagnose.</p>
+
+            <fieldset class="urgency-list">
+              <legend>Aktueller Zustand <span>Pflichtfeld</span></legend>
+              <label class="urgency-choice">
+                <input type="radio" name="urgencyLevel" value="Fahrbereit" />
+                <span class="urgency-index">01</span>
+                <span><strong>Fahrzeug ist fahrbereit</strong><small>Keine auffällige Einschränkung beim Fahren.</small></span>
+              </label>
+              <label class="urgency-choice">
+                <input type="radio" name="urgencyLevel" value="Eingeschränkt fahrbereit" />
+                <span class="urgency-index">02</span>
+                <span><strong>Eingeschränkt fahrbereit</strong><small>Eine zeitnahe Prüfung ist sinnvoll.</small></span>
+              </label>
+              <label class="urgency-choice">
+                <input type="radio" name="urgencyLevel" value="Nicht fahrbereit" />
+                <span class="urgency-index">03</span>
+                <span><strong>Nicht fahrbereit</strong><small>Das Fahrzeug steht und muss gegebenenfalls transportiert werden.</small></span>
+              </label>
+              <label class="urgency-choice urgency-critical">
+                <input type="radio" name="urgencyLevel" value="Sicherheitskritisch oder unsicher" />
+                <span class="urgency-index">04</span>
+                <span><strong>Sicherheitskritisch oder unsicher</strong><small>Du bist dir nicht sicher, ob du weiterfahren solltest.</small></span>
+              </label>
+            </fieldset>
+            <p class="field-error" id="urgencyLevel-error" hidden>Bitte wähle den aktuellen Fahrzeugzustand aus.</p>
+
+            <div class="safety-notice" id="safety-notice" role="alert" hidden>
+              <span aria-hidden="true">!</span>
+              <div><strong>Im Zweifel nicht weiterfahren.</strong><p>ServiceCheck stellt keine Diagnose. Sichere das Fahrzeug ab und kontaktiere bei akuter Gefahr den Pannendienst oder Notruf.</p></div>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="4" hidden>
+            <p class="section-kicker">Dein bevorzugter Zeitraum</p>
+            <h2 tabindex="-1">Wann passt es für dich?</h2>
+            <p class="step-copy">Nenne uns deinen Wunsch. Der Termin wird erst nach persönlicher Bestätigung durch die Werkstatt verbindlich.</p>
+
+            <div class="appointment-grid">
+              <label class="date-field">
+                <span>Wunschdatum <b>Pflichtfeld</b></span>
+                <input name="appointmentDate" type="date" />
+                <small class="field-error" id="appointmentDate-error" hidden>Bitte wähle ein zukünftiges Datum.</small>
+              </label>
+              <fieldset class="time-choices">
+                <legend>Bevorzugte Uhrzeit <span>Pflichtfeld</span></legend>
+                <div>
+                  <label><input type="radio" name="timeWindow" value="Morgens" /><span>08–11 Uhr</span><strong>Morgens</strong></label>
+                  <label><input type="radio" name="timeWindow" value="Mittags" /><span>11–14 Uhr</span><strong>Mittags</strong></label>
+                  <label><input type="radio" name="timeWindow" value="Nachmittags" /><span>14–18 Uhr</span><strong>Nachmittags</strong></label>
+                  <label><input type="radio" name="timeWindow" value="Flexibel" /><span>Werkstattwahl</span><strong>Flexibel</strong></label>
+                </div>
+                <small class="field-error" id="timeWindow-error" hidden>Bitte wähle ein Zeitfenster aus.</small>
+              </fieldset>
+            </div>
+
+            <label class="toggle-field">
+              <input type="checkbox" name="alternativeAllowed" checked />
+              <span aria-hidden="true"></span>
+              <div><strong>Alternativtermin ist möglich</strong><small>Die Werkstatt darf einen anderen passenden Termin vorschlagen.</small></div>
+            </label>
+
+            <div class="info-notice"><span>i</span><p>Dies ist eine Terminanfrage, keine verbindliche Buchung. Die Werkstatt bestätigt den Termin persönlich.</p></div>
+          </section>
+
+          <section class="form-step" data-step="5" hidden>
+            <p class="section-kicker">Fast geschafft</p>
+            <h2 tabindex="-1">Wie erreichen wir dich?</h2>
+            <p class="step-copy">Name und mindestens eine Kontaktmöglichkeit reichen aus.</p>
+
+            <div class="contact-fields">
+              <label>
+                <span>Vor- und Nachname <b>Pflichtfeld</b></span>
+                <input name="contactName" type="text" autocomplete="name" placeholder="z. B. Max Mustermann" />
+                <small class="field-error" id="contactName-error" hidden>Bitte ergänze deinen Namen.</small>
+              </label>
+              <label>
+                <span>E-Mail-Adresse</span>
+                <input name="contactEmail" type="email" autocomplete="email" placeholder="max@beispiel.de" />
+                <small class="field-error" id="contactEmail-error" hidden>Bitte gib eine gültige E-Mail-Adresse ein.</small>
+              </label>
+              <label>
+                <span>Telefonnummer</span>
+                <input name="contactPhone" type="tel" autocomplete="tel" placeholder="z. B. 0176 12345678" />
+                <small class="field-error" id="contactPhone-error" hidden>Bitte gib eine gültige Telefonnummer ein.</small>
+              </label>
+            </div>
+            <p class="field-error contact-error" id="contactMethod-error" hidden>Bitte gib mindestens eine E-Mail-Adresse oder Telefonnummer an.</p>
+
+            <fieldset class="contact-channel">
+              <legend>Bestätigung erhalten per <span>Pflichtfeld</span></legend>
+              <div>
+                <label><input type="radio" name="preferredChannel" value="E-Mail" /><span>E-Mail</span></label>
+                <label><input type="radio" name="preferredChannel" value="SMS" /><span>SMS</span></label>
+              </div>
+              <small class="field-error" id="preferredChannel-error" hidden>Bitte wähle E-Mail oder SMS für die Bestätigung.</small>
+            </fieldset>
+          </section>
+
+          <section class="form-step summary-step" data-step="6" hidden>
+            <div class="summary-heading">
+              <div><p class="section-kicker">Unverbindliche Anfrage</p><h2 tabindex="-1">Alles auf einen Blick.</h2></div>
+              <span class="summary-status">Entwurf</span>
+            </div>
+            <p class="step-copy">Prüfe deine Angaben. Über „Ändern“ gelangst du direkt zum jeweiligen Schritt zurück.</p>
+
+            <div class="summary-grid" id="summary-content"></div>
+
+            <div class="success-panel" id="success-panel" role="status" tabindex="-1" hidden>
+              <span>✓</span>
+              <div>
+                <p class="success-kicker">Anfrage bestätigt</p>
+                <strong id="success-title">Deine Anfrage ist vollständig abgeschlossen.</strong>
+                <p id="success-message">Du bekommst eine Bestätigung über den von dir ausgewählten Kontaktweg und die Werkstatt hat deine Anfrage erhalten.</p>
+                <dl class="success-details">
+                  <div><dt>Vorgangsnummer</dt><dd id="success-reference">–</dd></div>
+                  <div><dt>Bestätigung</dt><dd id="success-channel">–</dd></div>
+                  <div><dt>Status</dt><dd>Neu / unbestätigt</dd></div>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button class="button button-secondary" id="back-button" type="button" hidden><span>←</span> Zurück</button>
+            <button class="button button-primary" id="next-button" type="button">Weiter <span>→</span></button>
+            <a class="button button-primary" id="success-return-button" href="https://gzrnvjnfn6-max.github.io/autowerk-portfolio-demo/" hidden>Zurück zu AutoWerk <span>→</span></a>
+          </div>
+        </form>
+
+      </section>
+    </main>
+  </body>
+</html>
